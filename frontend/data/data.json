@@ -1,0 +1,76 @@
+
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Cleansers",
+      "parent_id": null,
+      "image": "https://via.placeholder.com/400x300?text=Cleansers"
+    },
+    {
+      "id": 2,
+      "name": "Moisturizers",
+      "parent_id": null,
+      "image": "https://via.placeholder.com/400x300?text=Moisturizers"
+    },
+    {
+      "id": 3,
+      "name": "Serums",
+      "parent_id": null,
+      "image": "https://via.placeholder.com/400x300?text=Serums"
+    },
+    {
+      "id": 4,
+      "name": "Face Masks",
+      "parent_id": null,
+      "image": "https://via.placeholder.com/400x300?text=Face+Masks"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Gentle Foam Cleanser",
+      "description": "A soft foaming cleanser for daily use.",
+      "price": 15.99,
+      "category_id": 1,
+      "image_url": "https://via.placeholder.com/300x400?text=Gentle+Foam+Cleanser",
+      "additional_images": ["https://via.placeholder.com/300x400?text=Image+2", "https://via.placeholder.com/300x400?text=Image+3"]
+    },
+    {
+      "id": 2,
+      "name": "Hydrating Moisturizer",
+      "description": "Deep hydration for dry skin.",
+      "price": 24.99,
+      "category_id": 2,
+      "image_url": "https://via.placeholder.com/300x400?text=Hydrating+Moisturizer",
+      "additional_images": []
+    },
+    {
+      "id": 3,
+      "name": "Vitamin C Serum",
+      "description": "Brightening serum with antioxidants.",
+      "price": 29.99,
+      "category_id": 3,
+      "image_url": "https://via.placeholder.com/300x400?text=Vitamin+C+Serum",
+      "additional_images": []
+    },
+    {
+      "id": 4,
+      "name": "Clay Face Mask",
+      "description": "Purifying mask for oily skin.",
+      "price": 19.99,
+      "category_id": 4,
+      "image_url": "https://via.placeholder.com/300x400?text=Clay+Face+Mask",
+      "additional_images": []
+    },
+    {
+      "id": 5,
+      "name": "Oil-Based Cleanser",
+      "description": "Removes makeup and impurities.",
+      "price": 18.99,
+      "category_id": 1,
+      "image_url": "https://via.placeholder.com/300x400?text=Oil-Based+Cleanser",
+      "additional_images": []
+    }
+  ]
+}
