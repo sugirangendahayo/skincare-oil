@@ -202,7 +202,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <Link
-              to="/collections"
+              to="/categories"
               className="inline-flex items-center bg-rose-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-300/50 transition-all duration-300 transform hover:scale-105"
             >
               View All Collections
