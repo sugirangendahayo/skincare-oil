@@ -1,51 +1,98 @@
 // src/pages/Categories.jsx - Categories page component with tabs
-import React, { useEffect, useState } from 'react';
-import data from "../../data/data.json";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import useCartStore from "../store/cartStore";
+
+const API_BASE_URL = "http://localhost:3000";
 
 const Categories = () => {
   const [categoriesWithProducts, setCategoriesWithProducts] = useState([]);
   const [activeTab, setActiveTab] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const categoryImages = {
+    Cleansers:
+      "https://www.shutterstock.com/image-vector/ad-banner-simple-beauty-products-260nw-1780339235.jpg",
+    Moisturizers:
+      "https://www.shutterstock.com/image-vector/elegant-face-cream-banner-ads-260nw-1204702882.jpg",
+    Serums:
+      "https://static.vecteezy.com/system/resources/thumbnails/071/780/209/small/luxury-skincare-products-serums-creams-and-lotions-for-beauty-and-wellness-photo.jpg",
+    "Face Masks":
+      "https://www.shutterstock.com/image-vector/facial-mask-sheet-gold-collagen-260nw-519630427.jpg",
+  };
 
   useEffect(() => {
-    // "Fetch" and process hardcoded data
-    const processedCategories = data.categories.map(category => ({
-      ...category,
-      products: data.products.filter(product => product.category_id === category.id)
-    }));
-    setCategoriesWithProducts(processedCategories);
-    
-    // Set first category as active by default
-    if (processedCategories.length > 0) {
-      setActiveTab(processedCategories[0].id);
-      setActiveCategory(processedCategories[0]);
+    // In src/pages/Categories.jsx, modify the fetchData function
+    async function fetchData() {
+      try {
+        const catRes = await axios.get(`${API_BASE_URL}/api/categories`);
+        const prodRes = await axios.get(`${API_BASE_URL}/api/products`);
+
+        const products = prodRes.data.map((product) => ({
+          ...product,
+          // Convert price to a number immediately after fetching
+          price: Number(product.price),
+        }));
+
+        const processedCategories = catRes.data.map((category) => ({
+          ...category,
+          image: categoryImages[category.name] || "/placeholder-category.jpg",
+          products: products.filter(
+            (product) => product.category_id === category.id
+          ),
+        }));
+
+        setCategoriesWithProducts(processedCategories);
+
+        if (processedCategories.length > 0) {
+          setActiveTab(processedCategories[0].id);
+          setActiveCategory(processedCategories[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
+
+    fetchData();
   }, []);
 
   // Handle tab click
   const handleTabClick = (categoryId) => {
     setActiveTab(categoryId);
-    const category = categoriesWithProducts.find(cat => cat.id === categoryId);
+    const category = categoriesWithProducts.find(
+      (cat) => cat.id === categoryId
+    );
     setActiveCategory(category);
   };
 
   return (
-    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 font-quicksand pt-16 mt-10">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12 text-purple-800 tracking-wide">
-          Explore Our Skincare Categories
-        </h1>
+    <div className="min-h-screen bg-black pt-24">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-gray-900 to-black py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Explore Our <span className="text-yellow-500">Collections</span>
+          </h1>
+          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+            Discover premium skincare solutions tailored for every skin type.
+            From deep hydration to anti-aging formulas, find your perfect match.
+          </p>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Tabs Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {categoriesWithProducts.map(category => (
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categoriesWithProducts.map((category) => (
             <button
               key={category.id}
               onClick={() => handleTabClick(category.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+              className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 border-2 ${
                 activeTab === category.id
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'bg-white text-purple-600 border border-purple-200 hover:bg-purple-50'
+                  ? "bg-yellow-500 text-black border-yellow-500 shadow-2xl shadow-yellow-500/25"
+                  : "bg-transparent text-gray-300 border-gray-600 hover:border-yellow-500 hover:text-yellow-400 hover:bg-yellow-500/10"
               }`}
             >
               {category.name}
@@ -55,71 +102,176 @@ const Categories = () => {
 
         {/* Active Category Content */}
         {activeCategory && (
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl shadow-2xl overflow-hidden border border-gray-800">
             {/* Category Header */}
-            <div className="relative">
-              <img 
-                src={activeCategory.image} 
-                alt={activeCategory.name} 
-                className="w-full h-64 object-cover filter brightness-90"
+            <div className="relative h-80 overflow-hidden">
+              <img
+                src={activeCategory.image}
+                alt={activeCategory.name}
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-6 left-6">
-                <h2 className="text-3xl font-bold text-white mb-2">
-                  {activeCategory.name}
-                </h2>
-                <p className="text-purple-200 text-lg">
-                  {activeCategory.products.length} product{activeCategory.products.length !== 1 ? 's' : ''} available
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="text-4xl font-bold text-white mb-2">
+                      {activeCategory.name}
+                    </h2>
+                    <p className="text-yellow-400 text-lg">
+                      {activeCategory.products.length} premium product
+                      {activeCategory.products.length !== 1 ? "s" : ""}
+                    </p>
+                  </div>
+                  <div className="bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-2xl px-4 py-2">
+                    <span className="text-yellow-400 font-bold text-sm">
+                      EXCLUSIVE COLLECTION
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-            
+
             {/* Products Grid */}
-            <div className="p-6">
+            <div className="p-8">
               {activeCategory.products.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {activeCategory.products.map(product => (
-                    <div 
-                      key={product.id} 
-                      className="bg-gray-50 rounded-xl p-4 hover:bg-purple-50 transition-all duration-300 hover:shadow-lg border border-gray-100"
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {activeCategory.products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 hover:border-yellow-500/50 border border-gray-700 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2"
                     >
                       <div className="flex flex-col h-full">
-                        <img 
-                          src={product.image_url} 
-                          alt={product.name} 
-                          className="w-full h-48 object-cover rounded-lg mb-4 shadow-md"
-                        />
-                        <div className="flex-grow">
-                          <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                          <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                        {/* Product Image */}
+                        <div className="relative overflow-hidden rounded-xl mb-4 bg-gradient-to-br from-gray-700 to-gray-800">
+                          <img
+                            src={`${API_BASE_URL}${product.image_url}`}
+                            alt={product.name}
+                            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute top-3 right-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                            ${product.price.toFixed(2)}
+                          </div>
                         </div>
-                        <div className="mt-auto pt-3 border-t border-gray-200">
-                          <p className="text-purple-600 font-bold text-lg">${product.price.toFixed(2)}</p>
-                          <button className="w-full mt-2 bg-black text-white py-2 px-4 rounded-lg hover:bg-black transition-colors duration-300 font-semibold">
-                            Add to Cart
-                          </button>
+
+                        {/* Product Info */}
+                        <div className="flex-grow">
+                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                            {product.name}
+                          </h3>
+                          <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+                            {product.description}
+                          </p>
+
+                          {/* Features */}
+                          <div className="flex items-center gap-2 mb-4">
+                            <span className="bg-yellow-500/10 text-yellow-400 px-2 py-1 rounded text-xs font-medium">
+                              Premium
+                            </span>
+                            <span className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs font-medium">
+                              Natural
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="mt-auto pt-4 border-t border-gray-700">
+                          <div className="flex gap-3">
+                            <button
+                              onClick={() => addToCart(product)}
+                              className="flex-1 bg-yellow-500 text-black font-bold py-3 px-4 rounded-xl hover:bg-yellow-600 hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105"
+                            >
+                              Add to Cart
+                            </button>
+                            <Link
+                              to={`/product/${product.id}`}
+                              className="flex items-center justify-center w-12 bg-gray-700 text-gray-300 rounded-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+                            >
+                              <svg
+                                className="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                />
+                              </svg>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-12">
-                  <div className="text-gray-400 text-6xl mb-4">😔</div>
-                  <p className="text-xl text-gray-500">No products in this category yet.</p>
-                  <p className="text-gray-400">Check back soon for new arrivals!</p>
+                <div className="text-center py-16">
+                  <div className="w-24 h-24 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg
+                      className="w-12 h-12 text-yellow-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Coming Soon
+                  </h3>
+                  <p className="text-gray-400 text-lg mb-6">
+                    We're preparing something amazing for this category!
+                  </p>
+                  <button className="bg-yellow-500 text-black font-bold py-3 px-6 rounded-xl hover:bg-yellow-600 transition-all duration-300">
+                    Notify Me
+                  </button>
                 </div>
               )}
             </div>
           </div>
         )}
 
-        {/* All Categories View (Optional - can be removed if you only want tabs) */}
-        {!activeTab && categoriesWithProducts.length > 0 && (
-          <div className="text-center py-8">
-            <p className="text-gray-600">Select a category above to view products</p>
+        {/* All Categories Overview */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">
+            All <span className="text-yellow-500">Categories</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {categoriesWithProducts.map((category) => (
+              <div
+                key={category.id}
+                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800 hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                onClick={() => handleTabClick(category.id)}
+              >
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-yellow-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500/20 transition-colors">
+                    <span className="text-2xl">{category.icon || "✨"}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400">
+                    {category.name}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-3">
+                    {category.products.length} products
+                  </p>
+                  <div className="w-12 h-1 bg-yellow-500 rounded-full mx-auto group-hover:w-16 transition-all duration-300"></div>
+                </div>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

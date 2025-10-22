@@ -1,5 +1,5 @@
 // controllers/userController.js - User operations
-import { findUserById } from '../models/user.js';
+import { findUserById, getAllUsers } from "../models/user.js";
 
 async function getUserProfile(req, res) {
   try {
@@ -10,4 +10,13 @@ async function getUserProfile(req, res) {
   }
 }
 
-export { getUserProfile };
+async function getAllUsersController(req, res) {
+  try {
+    const users = await getAllUsers();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+export { getUserProfile, getAllUsersController };

@@ -1,68 +1,62 @@
 // src/pages/admin/AdminDashboard.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import AdminSidebar from "./components/AdminSidebar";
+import AdminHeader from "./components/AdminHeader";
+import DashboardHome from "./components/DashboardHome";
+import ProductsManagement from "./components/ProductsManagement";
+import CategoriesManagement from "./components/CategoriesManagement";
+import UsersManagement from "./components/UsersManagement";
+import OrdersManagement from "./components/OrdersManagement";
 
 const AdminDashboard = () => {
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const location = useLocation();
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  // Get current page title from pathname
+  const getPageTitle = () => {
+    const path = location.pathname;
+    if (path.includes("/admin/products")) return "Products Management";
+    if (path.includes("/admin/categories")) return "Categories Management";
+    if (path.includes("/admin/users")) return "Users Management";
+    if (path.includes("/admin/orders")) return "Orders Management";
+    return "Dashboard Overview";
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-16">
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="border-4 border-dashed border-gray-200 rounded-lg p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">
-              Welcome to Admin Dashboard, {user.username}!
-            </h1>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900">Products Management</h3>
-                  <p className="mt-2 text-sm text-gray-500">Manage your skincare products</p>
-                  <Link 
-                    to="/admin/products" 
-                    className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
-                  >
-                    Manage Products
-                  </Link>
-                </div>
-              </div>
+    <div className="min-h-screen bg-gray-900">
+      {/* Sidebar */}
+      <AdminSidebar isOpen={sidebarOpen} onToggle={toggleSidebar} />
 
-              <div className="bg-white overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900">Categories Management</h3>
-                  <p className="mt-2 text-sm text-gray-500">Manage product categories</p>
-                  <button className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700">
-                    Manage Categories
-                  </button>
-                </div>
-              </div>
+      {/* Main Content */}
+      <div
+        className={`transition-all duration-300 ${
+          sidebarOpen ? "lg:ml-64" : "lg:ml-20"
+        }`}
+      >
+        {/* Header */}
+        <AdminHeader
+          sidebarOpen={sidebarOpen}
+          onToggleSidebar={toggleSidebar}
+          pageTitle={getPageTitle()}
+          userName={user.username}
+        />
 
-              <div className="bg-white overflow-hidden shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg font-medium text-gray-900">User Management</h3>
-                  <p className="mt-2 text-sm text-gray-500">Manage system users</p>
-                  <button className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700">
-                    Manage Users
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <span className="text-yellow-400">⚠️</span>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm text-yellow-700">
-                    <strong>Admin Access:</strong> You have full administrative privileges as the first registered user.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Main Content Area */}
+        <main className="p-6">
+          <Routes>
+            <Route path="/" element={<DashboardHome />} />
+            <Route path="/products" element={<ProductsManagement />} />
+            <Route path="/categories" element={<CategoriesManagement />} />
+            <Route path="/users" element={<UsersManagement />} />
+            <Route path="/orders" element={<OrdersManagement />} />
+          </Routes>
+        </main>
       </div>
     </div>
   );
