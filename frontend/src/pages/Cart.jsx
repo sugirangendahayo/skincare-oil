@@ -68,13 +68,13 @@ const Cart = () => {
           </p>
           <Link
             to="/orders"
-            className="bg-yellow-500 text-black font-bold py-3 px-8 rounded-xl hover:bg-yellow-600 transition-all duration-300 shadow-lg hover:shadow-yellow-500/20 mr-4"
+            className="bg-rose-500 text-black font-bold py-3 px-8 rounded-xl hover:bg-rose-600 transition-all duration-300 shadow-lg hover:shadow-rose-500/20 mr-4"
           >
             View Orders
           </Link>
           <Link
             to="/categories"
-            className="text-yellow-400 hover:text-yellow-300 transition-colors"
+            className="text-rose-400 hover:text-rose-300 transition-colors"
           >
             Continue Shopping →
           </Link>
@@ -96,7 +96,7 @@ const Cart = () => {
           </p>
           <Link
             to="/categories"
-            className="bg-yellow-500 text-black font-bold py-3 px-8 rounded-xl hover:bg-yellow-600 transition-all duration-300 shadow-lg hover:shadow-yellow-500/20"
+            className="bg-rose-500 text-black font-bold py-3 px-8 rounded-xl hover:bg-rose-600 transition-all duration-300 shadow-lg hover:shadow-rose-500/20"
           >
             Start Shopping
           </Link>
@@ -139,7 +139,7 @@ const Cart = () => {
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
-                          className="px-4 py-2 text-gray-300 hover:text-yellow-400"
+                          className="px-4 py-2 text-gray-300 hover:text-rose-400"
                         >
                           -
                         </button>
@@ -150,12 +150,12 @@ const Cart = () => {
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }
-                          className="px-4 py-2 text-gray-300 hover:text-yellow-400"
+                          className="px-4 py-2 text-gray-300 hover:text-rose-400"
                         >
                           +
                         </button>
                       </div>
-                      <span className="text-yellow-400 font-bold">
+                      <span className="text-rose-400 font-bold">
                         ${(item.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
@@ -204,7 +204,7 @@ const Cart = () => {
             </div>
             <button
               onClick={handlePlaceOrder}
-              className="w-full bg-yellow-500 text-black font-bold py-4 rounded-xl hover:bg-yellow-600 transition-all duration-300 shadow-lg hover:shadow-yellow-500/20 mb-4"
+              className="w-full bg-rose-500 text-black font-bold py-4 rounded-xl hover:bg-rose-600 transition-all duration-300 shadow-lg hover:shadow-rose-500/20 mb-4"
             >
               Place Order
             </button>
@@ -220,7 +220,7 @@ const Cart = () => {
         <div className="mt-8 text-center">
           <Link
             to="/categories"
-            className="text-yellow-400 hover:text-yellow-300 transition-colors"
+            className="text-rose-400 hover:text-rose-300 transition-colors"
           >
             Continue Shopping →
           </Link>

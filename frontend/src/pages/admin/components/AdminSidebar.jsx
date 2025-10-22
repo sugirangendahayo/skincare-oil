@@ -121,7 +121,7 @@ const AdminSidebar = ({ isOpen, onToggle }) => {
       <div className="flex items-center justify-between h-16 px-4 border-b border-gray-700">
         {isOpen && (
           <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-rose-400 to-rose-600 bg-clip-text text-transparent">
               Hairiat Admin
             </span>
           </div>
@@ -156,7 +156,7 @@ const AdminSidebar = ({ isOpen, onToggle }) => {
             to={item.path}
             className={`flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 group ${
               isActive(item.path, item.exact)
-                ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/25"
+                ? "bg-rose-500 text-black shadow-lg shadow-rose-500/25"
                 : "text-gray-300 hover:bg-gray-800 hover:text-white"
             } ${!isOpen ? "justify-center" : ""}`}
           >
@@ -164,7 +164,7 @@ const AdminSidebar = ({ isOpen, onToggle }) => {
               className={`${
                 isActive(item.path, item.exact)
                   ? "text-black"
-                  : "text-yellow-400"
+                  : "text-rose-400"
               } transition-colors duration-200`}
             >
               {item.icon}
@@ -187,7 +187,7 @@ const AdminSidebar = ({ isOpen, onToggle }) => {
         <div className="flex items-center justify-between">
           {isOpen && (
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-black font-bold text-sm">
+              <div className="w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center text-black font-bold text-sm">
                 A
               </div>
               <div className="ml-3">

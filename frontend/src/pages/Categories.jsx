@@ -73,7 +73,7 @@ const Categories = () => {
       <div className="bg-gradient-to-br from-gray-900 to-black py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Explore Our <span className="text-yellow-500">Collections</span>
+            Explore Our <span className="text-rose-500">Collections</span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
             Discover premium skincare solutions tailored for every skin type.
@@ -91,8 +91,8 @@ const Categories = () => {
               onClick={() => handleTabClick(category.id)}
               className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 border-2 ${
                 activeTab === category.id
-                  ? "bg-yellow-500 text-black border-yellow-500 shadow-2xl shadow-yellow-500/25"
-                  : "bg-transparent text-gray-300 border-gray-600 hover:border-yellow-500 hover:text-yellow-400 hover:bg-yellow-500/10"
+                  ? "bg-rose-500 text-black border-rose-500 shadow-2xl shadow-rose-500/25"
+                  : "bg-transparent text-gray-300 border-gray-600 hover:border-rose-500 hover:text-rose-400 hover:bg-rose-500/10"
               }`}
             >
               {category.name}
@@ -117,13 +117,13 @@ const Categories = () => {
                     <h2 className="text-4xl font-bold text-white mb-2">
                       {activeCategory.name}
                     </h2>
-                    <p className="text-yellow-400 text-lg">
+                    <p className="text-rose-400 text-lg">
                       {activeCategory.products.length} premium product
                       {activeCategory.products.length !== 1 ? "s" : ""}
                     </p>
                   </div>
-                  <div className="bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-2xl px-4 py-2">
-                    <span className="text-yellow-400 font-bold text-sm">
+                  <div className="bg-rose-500/20 backdrop-blur-sm border border-rose-500/30 rounded-2xl px-4 py-2">
+                    <span className="text-rose-400 font-bold text-sm">
                       EXCLUSIVE COLLECTION
                     </span>
                   </div>
@@ -138,7 +138,7 @@ const Categories = () => {
                   {activeCategory.products.map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 hover:border-yellow-500/50 border border-gray-700 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2"
+                      className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 hover:border-rose-500/50 border border-gray-700 hover:shadow-2xl hover:shadow-rose-500/10 transition-all duration-300 transform hover:-translate-y-2"
                     >
                       <div className="flex flex-col h-full">
                         {/* Product Image */}
@@ -148,14 +148,14 @@ const Categories = () => {
                             alt={product.name}
                             className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                           />
-                          <div className="absolute top-3 right-3 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                          <div className="absolute top-3 right-3 bg-rose-500 text-black px-3 py-1 rounded-full text-sm font-bold">
                             ${product.price.toFixed(2)}
                           </div>
                         </div>
 
                         {/* Product Info */}
                         <div className="flex-grow">
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">
                             {product.name}
                           </h3>
                           <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
@@ -164,7 +164,7 @@ const Categories = () => {
 
                           {/* Features */}
                           <div className="flex items-center gap-2 mb-4">
-                            <span className="bg-yellow-500/10 text-yellow-400 px-2 py-1 rounded text-xs font-medium">
+                            <span className="bg-rose-500/10 text-rose-400 px-2 py-1 rounded text-xs font-medium">
                               Premium
                             </span>
                             <span className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs font-medium">
@@ -178,13 +178,13 @@ const Categories = () => {
                           <div className="flex gap-3">
                             <button
                               onClick={() => addToCart(product)}
-                              className="flex-1 bg-yellow-500 text-black font-bold py-3 px-4 rounded-xl hover:bg-yellow-600 hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105"
+                              className="flex-1 bg-rose-500 text-black font-bold py-3 px-4 rounded-xl hover:bg-rose-600 hover:shadow-2xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:scale-105"
                             >
                               Add to Cart
                             </button>
                             <Link
                               to={`/product/${product.id}`}
-                              className="flex items-center justify-center w-12 bg-gray-700 text-gray-300 rounded-xl hover:bg-yellow-500 hover:text-black transition-all duration-300 transform hover:scale-105"
+                              className="flex items-center justify-center w-12 bg-gray-700 text-gray-300 rounded-xl hover:bg-rose-500 hover:text-black transition-all duration-300 transform hover:scale-105"
                             >
                               <svg
                                 className="w-5 h-5"
@@ -214,9 +214,9 @@ const Categories = () => {
                 </div>
               ) : (
                 <div className="text-center py-16">
-                  <div className="w-24 h-24 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-24 h-24 bg-rose-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <svg
-                      className="w-12 h-12 text-yellow-500"
+                      className="w-12 h-12 text-rose-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -235,7 +235,7 @@ const Categories = () => {
                   <p className="text-gray-400 text-lg mb-6">
                     We're preparing something amazing for this category!
                   </p>
-                  <button className="bg-yellow-500 text-black font-bold py-3 px-6 rounded-xl hover:bg-yellow-600 transition-all duration-300">
+                  <button className="bg-rose-500 text-black font-bold py-3 px-6 rounded-xl hover:bg-rose-600 transition-all duration-300">
                     Notify Me
                   </button>
                 </div>
@@ -247,26 +247,26 @@ const Categories = () => {
         {/* All Categories Overview */}
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-white text-center mb-12">
-            All <span className="text-yellow-500">Categories</span>
+            All <span className="text-rose-500">Categories</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categoriesWithProducts.map((category) => (
               <div
                 key={category.id}
-                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800 hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 border border-gray-800 hover:border-rose-500/50 hover:shadow-2xl hover:shadow-rose-500/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
                 onClick={() => handleTabClick(category.id)}
               >
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-yellow-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-500/20 transition-colors">
+                  <div className="w-20 h-20 bg-rose-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-rose-500/20 transition-colors">
                     <span className="text-2xl">{category.icon || "✨"}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-rose-400">
                     {category.name}
                   </h3>
                   <p className="text-gray-400 text-sm mb-3">
                     {category.products.length} products
                   </p>
-                  <div className="w-12 h-1 bg-yellow-500 rounded-full mx-auto group-hover:w-16 transition-all duration-300"></div>
+                  <div className="w-12 h-1 bg-rose-500 rounded-full mx-auto group-hover:w-16 transition-all duration-300"></div>
                 </div>
               </div>
             ))}

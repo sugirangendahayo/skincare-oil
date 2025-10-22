@@ -37,7 +37,7 @@ const DashboardHome = () => {
       change: "+23%",
       trend: "up",
       icon: "💰",
-      color: "bg-yellow-500",
+      color: "bg-rose-500",
       link: "/admin/orders",
     },
   ];
@@ -100,7 +100,7 @@ const DashboardHome = () => {
       description: "Organize product categories",
       icon: "📁",
       link: "/admin/categories",
-      color: "bg-yellow-500",
+      color: "bg-rose-500",
     },
   ];
 
@@ -122,7 +122,7 @@ const DashboardHome = () => {
           <Link
             key={index}
             to={stat.link}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-1"
+            className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 hover:border-rose-500/50 hover:shadow-2xl hover:shadow-rose-500/10 transition-all duration-300 transform hover:-translate-y-1"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -156,7 +156,7 @@ const DashboardHome = () => {
               <Link
                 key={index}
                 to={action.link}
-                className="bg-gray-700/50 hover:bg-gray-600 rounded-xl p-4 text-center transition-all duration-300 transform hover:scale-105 border border-gray-600 hover:border-yellow-500/30"
+                className="bg-gray-700/50 hover:bg-gray-600 rounded-xl p-4 text-center transition-all duration-300 transform hover:scale-105 border border-gray-600 hover:border-rose-500/30"
               >
                 <div className="text-2xl mb-2">{action.icon}</div>
                 <h3 className="text-white font-semibold text-sm mb-1">
@@ -227,12 +227,12 @@ const DashboardHome = () => {
             <p className="text-white font-semibold mt-2">Performance</p>
             <p className="text-gray-400 text-xs">Response time: 120ms</p>
           </div>
-          <div className="bg-gray-700/30 rounded-xl p-4 border border-yellow-500/20">
+          <div className="bg-gray-700/30 rounded-xl p-4 border border-rose-500/20">
             <div className="flex items-center justify-between">
-              <span className="text-yellow-400 text-sm font-medium">
+              <span className="text-rose-400 text-sm font-medium">
                 Secure
               </span>
-              <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-rose-500 rounded-full"></div>
             </div>
             <p className="text-white font-semibold mt-2">Security</p>
             <p className="text-gray-400 text-xs">All checks passed</p>

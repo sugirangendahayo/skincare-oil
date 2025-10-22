@@ -104,7 +104,7 @@ const UsersManagement = () => {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-white">Users Management</h1>
         <button
-          className="bg-yellow-500 text-black font-bold py-2 px-4 rounded-xl hover:bg-yellow-600 transition-colors"
+          className="bg-rose-500 text-black font-bold py-2 px-4 rounded-xl hover:bg-rose-600 transition-colors"
           onClick={() => {
             resetForm();
             setShowForm(true);
@@ -166,7 +166,7 @@ const UsersManagement = () => {
               </button>
               <button
                 type="submit"
-                className="bg-yellow-500 text-black py-2 px-4 rounded"
+                className="bg-rose-500 text-black py-2 px-4 rounded"
               >
                 {editingUser ? "Update" : "Create"}
               </button>

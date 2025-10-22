@@ -62,8 +62,8 @@ const Login = () => {
     <div className="min-h-screen bg-black pt-24">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-rose-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -71,12 +71,12 @@ const Login = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-4xl font-black bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+              <span className="text-4xl font-black bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent">
                 Hairiat
               </span>
             </Link>
             <h1 className="text-3xl font-bold text-white mb-3">
-              Welcome <span className="text-yellow-500">Back</span>
+              Welcome <span className="text-rose-500">Back</span>
             </h1>
             <p className="text-gray-400">
               Sign in to your account to continue your skincare journey
@@ -84,7 +84,7 @@ const Login = () => {
           </div>
 
           {/* Login Card */}
-          <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 shadow-2xl shadow-yellow-500/5">
+          <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 shadow-2xl shadow-rose-500/5">
             {error && (
               <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
                 <div className="flex items-center">
@@ -122,7 +122,7 @@ const Login = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-300"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all duration-300"
                     placeholder="Enter your email"
                     required
                   />
@@ -155,7 +155,7 @@ const Login = () => {
                   </label>
                   <Link
                     to="/forgot-password"
-                    className="text-sm text-yellow-500 hover:text-yellow-400 transition-colors duration-300"
+                    className="text-sm text-rose-500 hover:text-rose-400 transition-colors duration-300"
                   >
                     Forgot password?
                   </Link>
@@ -167,7 +167,7 @@ const Login = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-300"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all duration-300"
                     placeholder="Enter your password"
                     required
                   />
@@ -195,7 +195,7 @@ const Login = () => {
                   <input
                     type="checkbox"
                     id="remember"
-                    className="w-4 h-4 bg-gray-800 border-gray-700 rounded focus:ring-yellow-500 focus:ring-2"
+                    className="w-4 h-4 bg-gray-800 border-gray-700 rounded focus:ring-rose-500 focus:ring-2"
                   />
                   <label
                     htmlFor="remember"
@@ -210,7 +210,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-rose-500 to-rose-600 text-black font-bold py-4 px-8 rounded-xl hover:shadow-2xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {loading ? (
                   <span className="flex items-center justify-center">
@@ -287,7 +287,7 @@ const Login = () => {
                 Don't have an account?{" "}
                 <Link
                   to="/signup"
-                  className="text-yellow-500 hover:text-yellow-400 font-semibold transition-colors duration-300"
+                  className="text-rose-500 hover:text-rose-400 font-semibold transition-colors duration-300"
                 >
                   Create one here
                 </Link>

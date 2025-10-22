@@ -1,349 +1,211 @@
-// src/pages/Home.jsx
+/* eslint-disable no-unused-vars */
+// src/pages/Home.js - Wedding Dresses Home Page
 import React from "react";
-import TypewriterComponent from "../components/TypewriterComponent";
-import HeroImage from "../assets/hero-image.png";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const collections = [
+    {
+      id: 1,
+      name: "Classic A-Line",
+      image:
+        "https://images.unsplash.com/photo-1537832816519-689ad163238b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      description: "Timeless elegance with flowing silhouettes",
+    },
+    {
+      id: 2,
+      name: "Mermaid & Trumpet",
+      image:
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      description: "Dramatic curves and sophisticated style",
+    },
+    {
+      id: 3,
+      name: "Bohemian Romance",
+      image:
+        "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      description: "Free-spirited and effortlessly beautiful",
+    },
+    {
+      id: 4,
+      name: "Modern Minimalist",
+      image:
+        "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      description: "Clean lines and contemporary elegance",
+    },
+  ];
+
+  const designers = [
+    {
+      name: "Vera Wang",
+      specialty: "Architectural Romance",
+      image:
+        "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+    },
+    {
+      name: "Oscar de la Renta",
+      specialty: "Timeless Luxury",
+      image:
+        "https://images.unsplash.com/photo-1519657337289-0776531f13cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+    },
+    {
+      name: "Monique Lhuillier",
+      specialty: "Feminine Elegance",
+      image:
+        "https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+    },
+  ];
+
+  const testimonials = [
+    {
+      quote:
+        "I found my dream dress at Élégante. The experience was magical from start to finish.",
+      author: "Sarah Mitchell",
+      wedding: "June Wedding, Tuscany",
+    },
+    {
+      quote:
+        "The attention to detail and personalized service made me feel like a true princess.",
+      author: "Emily Chen",
+      wedding: "Beach Wedding, Santorini",
+    },
+    {
+      quote:
+        "From the first fitting to the final adjustment, every moment was perfect. Thank you!",
+      author: "Jessica Rodriguez",
+      wedding: "Garden Wedding, Napa Valley",
+    },
+  ];
+
   return (
-    <div className="bg-black text-white overflow-hidden pt-30">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500/5 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              'url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div
-              className="text-center lg:text-left space-y-8 relative z-10"
-              data-aos="fade-right"
-            >
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full mb-4">
-                  <span className="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span>
-                  <span className="text-yellow-500 text-sm font-medium">
-                    Premium Skincare Collection
-                  </span>
-                </div>
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-rose-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-pink-200/20 rounded-full blur-3xl"></div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  Discover Your{" "}
-                  <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-                    Natural Glow
-                  </span>
-                </h1>
-
-                <div className="text-xl sm:text-2xl text-gray-300 font-light">
-                  <TypewriterComponent
-                    strings={[
-                      "Transform your skincare routine.",
-                      "Radiant skin starts here.",
-                      "Nature meets science.",
-                      "Your journey to perfect skin.",
-                    ]}
-                    className="text-yellow-400"
-                  />
-                </div>
-              </div>
-
-              <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
-                Experience the perfect blend of nature and science with our
-                premium skincare products. Formulated with organic ingredients
-                and advanced technology for visible results.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link
-                  to="/collection"
-                  className="group relative bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 inline-flex items-center justify-center"
-                >
-                  <span>Shop Collection</span>
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-
-                <Link
-                  to="/about"
-                  className="group border-2 border-yellow-500/50 text-yellow-400 font-bold py-4 px-8 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
-                >
-                  <span>Learn More</span>
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-800">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-500">
-                    50K+
-                  </div>
-                  <div className="text-gray-400 text-sm">Happy Customers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-500">
-                    100%
-                  </div>
-                  <div className="text-gray-400 text-sm">
-                    Natural Ingredients
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-yellow-500">
-                    24/7
-                  </div>
-                  <div className="text-gray-400 text-sm">Expert Support</div>
-                </div>
-              </div>
+        {/* Hero Content */}
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="mb-8">
+            <div className="w-20 h-20 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+              <span className="text-white text-2xl">✦</span>
             </div>
-
-            {/* Right Image */}
-            <div className="relative" data-aos="fade-left" data-aos-delay="200">
-              <div className="relative z-10">
-                <img
-                  src={HeroImage}
-                  alt="Premium Skincare Products"
-                  className="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl shadow-yellow-500/10 transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow-500/10 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-yellow-500/5 rounded-full blur-xl animate-float-delayed"></div>
-            </div>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+              Your Dream Dress
+              <br />
+              <span className="text-rose-200">Awaits</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-rose-100 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+              Discover bespoke wedding dresses crafted with love, precision, and
+              timeless elegance
+            </p>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-yellow-500 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-yellow-500 rounded-full mt-2 animate-pulse"></div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              to="/collections"
+              className="bg-white text-rose-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-rose-50 hover:shadow-2xl hover:shadow-rose-200/50 transition-all duration-300 transform hover:scale-105"
+            >
+              Explore Collections
+            </Link>
+            <Link
+              to="/appointments"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-rose-600 transition-all duration-300 transform hover:scale-105"
+            >
+              Book Consultation
+            </Link>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-rose-200 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-rose-200 rounded-full mt-2 animate-pulse"></div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+      {/* Featured Collections */}
+      <section className="py-20 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Why Choose <span className="text-yellow-500">Hairiat</span>?
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-800 mb-4">
+              Signature <span className="text-rose-500">Collections</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              We combine cutting-edge science with nature's finest ingredients
-              to deliver exceptional skincare results.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Curated with love, each collection tells a unique story of romance
+              and elegance
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: (
-                  <svg
-                    data-slot="icon"
-                    fill="none"
-                    className="w-12 h-12"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
-                    ></path>
-                  </svg>
-                ),
-                title: "Natural Ingredients",
-                description:
-                  "100% organic and sustainably sourced ingredients for pure, effective skincare.",
-              },
-              {
-                icon: (
-                  <svg
-                    data-slot="icon"
-                    fill="none"
-                    className="w-12 h-12"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
-                    ></path>
-                  </svg>
-                ),
-                title: "Science Backed",
-                description:
-                  "Formulated with advanced technology and clinically proven ingredients.",
-              },
-              {
-                icon: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="36"
-                    height="36"
-                    class="main-grid-item-icon"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  >
-                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                  </svg>
-                ),
-                title: "Hydration Focus",
-                description:
-                  "Deep hydration solutions for all skin types and concerns.",
-              },
-              {
-                icon: (
-                  <svg
-                    data-slot="icon"
-                    fill="none"
-                    className="w-12 h-12"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
-                    ></path>
-                  </svg>
-                ),
-                title: "Visible Results",
-                description:
-                  "See noticeable improvements in skin texture and radiance within weeks.",
-              },
-            ].map((feature, index) => (
+            {collections.map((collection, index) => (
               <div
-                key={index}
-                className="group bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
+                key={collection.id}
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <div className="relative overflow-hidden h-80">
+                  <img
+                    src={collection.image}
+                    alt={collection.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-      {/* Best Sellers Preview */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Best <span className="text-yellow-500">Sellers</span>
-            </h2>
-            <p className="text-gray-400 text-lg">
-              Discover our most loved skincare products
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item, index) => (
-              <div
-                key={index}
-                className="group bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl overflow-hidden hover:border-yellow-500/50 hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300 transform hover:-translate-y-2"
-                data-aos="zoom-in"
-                data-aos-delay={index * 150}
-              >
-                <div className="h-64 bg-gradient-to-br from-yellow-500/10 to-yellow-600/5 flex items-center justify-center relative overflow-hidden">
-                  <div className="w-32 h-32 bg-yellow-500/20 rounded-full absolute -top-16 -right-16"></div>
-                  <div className="w-24 h-24 bg-yellow-500/10 rounded-full absolute -bottom-12 -left-12"></div>
-                  <div className="text-6xl">
-                    <svg
-                      className="w-12 h-12"
-                      data-slot="icon"
-                      fill="none"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
+                  {/* Overlay Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-xl font-serif font-bold text-white mb-2">
+                      {collection.name}
+                    </h3>
+                    <p className="text-rose-100 text-sm mb-4">
+                      {collection.description}
+                    </p>
+                    <Link
+                      to={`/collections/${collection.name
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                      className="inline-flex items-center text-white font-semibold hover:text-rose-200 transition-colors duration-300"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Premium Serum #{item}
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    Advanced formula for radiant, youthful skin
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-yellow-500">
-                      $49.99
-                    </span>
-                    <button className="bg-yellow-500 text-black font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition-colors duration-300 transform hover:scale-105">
-                      Add to Cart
-                    </button>
+                      Discover
+                      <svg
+                        className="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12" data-aos="fade-up">
+          <div className="text-center mt-12">
             <Link
-              to="/collection"
-              className="inline-flex items-center bg-transparent border-2 border-yellow-500 text-yellow-400 font-bold py-4 px-8 rounded-xl hover:bg-yellow-500/10 transition-all duration-300 transform hover:scale-105"
+              to="/collections"
+              className="inline-flex items-center bg-rose-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-300/50 transition-all duration-300 transform hover:scale-105"
             >
-              View All Products
+              View All Collections
               <svg
                 className="w-5 h-5 ml-2"
                 fill="none"
@@ -358,70 +220,232 @@ const Home = () => {
                 />
               </svg>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Bridal Experience */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-rose-200 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-200 rounded-full translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="space-y-8">
+              <div>
+                <span className="text-rose-500 font-semibold uppercase tracking-wider text-sm">
+                  The Experience
+                </span>
+                <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-800 mt-2 mb-6">
+                  Your Personal{" "}
+                  <span className="text-rose-500">Bridal Journey</span>
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Step into our exclusive bridal suite where dreams become
+                  reality. Our expert consultants provide personalized attention
+                  in a luxurious, intimate setting.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: "🎯",
+                    title: "Personal Styling",
+                    description:
+                      "One-on-one consultations with our bridal experts",
+                  },
+                  {
+                    icon: "✂️",
+                    title: "Custom Alterations",
+                    description:
+                      "Perfect fit guaranteed with our master tailors",
+                  },
+                  {
+                    icon: "💎",
+                    title: "Premium Accessories",
+                    description: "Complete your look with curated accessories",
+                  },
+                  {
+                    icon: "📸",
+                    title: "Bridal Photography",
+                    description: "Capture the moment in our styled settings",
+                  },
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start space-x-4 p-4 rounded-xl hover:bg-rose-50 transition-colors duration-300"
+                  >
+                    <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center text-rose-600 text-xl">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                to="/bridal-suite"
+                className="inline-flex items-center bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-900 transition-all duration-300 transform hover:scale-105"
+              >
+                Explore Bridal Suite
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Image Gallery */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <img
+                  src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Bridal Consultation"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Dress Fitting"
+                  className="w-full h-32 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
+              <div className="space-y-4 pt-8">
+                <img
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Bridal Accessories"
+                  className="w-full h-32 object-cover rounded-2xl shadow-lg"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1519657337289-0776531f13cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                  alt="Luxury Interior"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Designers */}
+      <section className="py-20 bg-rose-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-800 mb-4">
+              World-Renowned <span className="text-rose-500">Designers</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Featuring exclusive collections from the most celebrated names in
+              bridal fashion
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {designers.map((designer, index) => (
+              <div
+                key={index}
+                className="group text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              >
+                <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-100 group-hover:border-rose-200 transition-colors duration-300">
+                  <img
+                    src={designer.image}
+                    alt={designer.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">
+                  {designer.name}
+                </h3>
+                <p className="text-rose-500 font-medium mb-4">
+                  {designer.specialty}
+                </p>
+                <p className="text-gray-600 text-sm mb-6">
+                  Exclusive collection available only at Élégante Bridal Couture
+                </p>
+                <Link
+                  to={`/designers/${designer.name
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="inline-flex items-center text-rose-500 font-semibold hover:text-rose-600 transition-colors duration-300"
+                >
+                  View Collection
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              What Our <span className="text-yellow-500">Customers</span> Say
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-800 mb-4">
+              Love <span className="text-rose-500">Stories</span>
             </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Hear from brides who found their perfect dress at Élégante
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah M.",
-                role: "Beauty Blogger",
-                text: "These products transformed my skincare routine. My skin has never looked better!",
-                rating: 5,
-              },
-              {
-                name: "Jessica T.",
-                role: "Model",
-                text: "The natural ingredients make all the difference. My skin feels hydrated and looks radiant.",
-                rating: 5,
-              },
-              {
-                name: "Alex P.",
-                role: "Skincare Enthusiast",
-                text: "Finally found products that deliver real results without harsh chemicals. Absolutely love it!",
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-6 hover:border-yellow-500/30 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
+                className="bg-rose-50 rounded-2xl p-8 relative group hover:bg-white hover:shadow-xl transition-all duration-500"
               >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-500 text-xl">
-                      ★
-                    </span>
-                  ))}
+                {/* Quote Icon */}
+                <div className="text-6xl text-rose-200 absolute -top-4 -left-4 opacity-50">
+                  "
                 </div>
-                <p className="text-gray-300 italic mb-6">
-                  "{testimonial.text}"
+
+                <p className="text-gray-700 text-lg italic mb-6 relative z-10 leading-relaxed">
+                  {testimonial.quote}
                 </p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-yellow-500 font-bold">
-                      {testimonial.name[0]}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-yellow-500 text-sm">
-                      {testimonial.role}
-                    </div>
-                  </div>
+
+                <div className="border-t border-rose-200 pt-6">
+                  <p className="font-semibold text-gray-800">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-rose-500 text-sm">{testimonial.wedding}</p>
+                </div>
+
+                {/* Floating hearts */}
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="text-rose-300 text-xl">💖</span>
                 </div>
               </div>
             ))}
@@ -429,58 +453,49 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-yellow-500 to-yellow-600">
-        <div
-          className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8"
-          data-aos="zoom-in"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
-            Ready to Transform Your Skin?
+      {/* Final CTA */}
+      <section className="py-20 bg-gradient-to-r from-rose-500 to-pink-500 relative overflow-hidden">
+        {/* Floating Elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+            Begin Your Bridal Journey
           </h2>
-          <p className="text-black/80 text-lg mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers and start your journey to
-            healthier, more radiant skin today.
+          <p className="text-rose-100 text-xl mb-8 max-w-2xl mx-auto">
+            Schedule your private consultation and discover the dress of your
+            dreams in our exclusive bridal suite.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/collection"
-              className="bg-black text-yellow-500 font-bold py-4 px-8 rounded-xl hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              to="/appointments"
+              className="bg-white text-rose-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-rose-50 hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             >
-              Shop Now
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+              Book Appointment
             </Link>
             <Link
-              to="/signup"
-              className="border-2 border-black text-black font-bold py-4 px-8 rounded-xl hover:bg-black hover:text-yellow-500 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+              to="/collections"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-rose-600 transition-all duration-300 transform hover:scale-105"
             >
-              Create Account
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-                />
-              </svg>
+              Browse Collections
             </Link>
+          </div>
+
+          <div className="mt-12 grid grid-cols-3 gap-8 text-white">
+            <div>
+              <div className="text-2xl font-bold mb-2">500+</div>
+              <div className="text-rose-100 text-sm">Designer Dresses</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold mb-2">50+</div>
+              <div className="text-rose-100 text-sm">Exclusive Designers</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold mb-2">1000+</div>
+              <div className="text-rose-100 text-sm">Happy Brides</div>
+            </div>
           </div>
         </div>
       </section>

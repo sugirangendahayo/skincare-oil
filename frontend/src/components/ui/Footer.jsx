@@ -51,8 +51,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-yellow-600 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-rose-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-rose-600 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500 rounded-full blur-3xl"></div>
       </div>
 
@@ -63,14 +63,14 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6">
               <div className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-rose-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <span className="text-white font-bold text-lg">✦</span>
                 </div>
                 <div>
                   <h3 className="text-2xl font-serif font-bold text-white">
                     Élégante
                   </h3>
-                  <p className="text-yellow-300 text-sm font-light tracking-widest">
+                  <p className="text-rose-300 text-sm font-light tracking-widest">
                     BRIDAL COUTURE
                   </p>
                 </div>
@@ -87,7 +87,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.url}
-                  className="w-12 h-12 bg-gray-800 hover:bg-yellow-500 rounded-xl flex items-center justify-center text-lg transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-yellow-500/25"
+                  className="w-12 h-12 bg-gray-800 hover:bg-rose-500 rounded-xl flex items-center justify-center text-lg transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-rose-500/25"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -100,16 +100,16 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-serif font-semibold text-white mb-6 relative inline-block">
               Quick Links
-              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-yellow-500"></span>
+              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-rose-500"></span>
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-yellow-300 transition-colors duration-300 flex items-center group"
+                    className="text-gray-300 hover:text-rose-300 transition-colors duration-300 flex items-center group"
                   >
-                    <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="w-1.5 h-1.5 bg-rose-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -121,12 +121,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-serif font-semibold text-white mb-6 relative inline-block">
               Our Services
-              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-yellow-500"></span>
+              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-rose-500"></span>
             </h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index} className="flex items-center text-gray-300">
-                  <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-3"></span>
+                  <span className="w-1.5 h-1.5 bg-rose-500 rounded-full mr-3"></span>
                   {service}
                 </li>
               ))}
@@ -137,12 +137,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-serif font-semibold text-white mb-6 relative inline-block">
               Get In Touch
-              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-yellow-500"></span>
+              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-rose-500"></span>
             </h4>
             <div className="space-y-4">
               {contactInfo.map((contact, index) => (
                 <div key={index} className="flex items-start space-x-3 group">
-                  <span className="text-yellow-400 text-lg mt-1 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-rose-400 text-lg mt-1 group-hover:scale-110 transition-transform duration-300">
                     {contact.icon}
                   </span>
                   <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
@@ -159,9 +159,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-1 bg-gray-800 border border-gray-700 rounded-l-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all duration-300"
+                  className="flex-1 bg-gray-800 border border-gray-700 rounded-l-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500 transition-all duration-300"
                 />
-                <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-3 rounded-r-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/25">
+                <button className="bg-rose-500 hover:bg-rose-600 text-black px-4 py-3 rounded-r-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-rose-500/25">
                   Subscribe
                 </button>
               </div>
@@ -193,7 +193,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   to={link.path}
-                  className="text-gray-400 hover:text-yellow-300 transition-colors duration-300"
+                  className="text-gray-400 hover:text-rose-300 transition-colors duration-300"
                 >
                   {link.name}
                 </Link>
@@ -220,7 +220,7 @@ const Footer = () => {
 
       {/* Floating CTA */}
       <div className="fixed bottom-6 right-6 z-50">
-        <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-2xl p-4 shadow-2xl shadow-yellow-500/25 transform hover:scale-105 transition-all duration-300 group cursor-pointer">
+        <div className="bg-gradient-to-r from-rose-500 to-rose-600 text-black rounded-2xl p-4 shadow-2xl shadow-rose-500/25 transform hover:scale-105 transition-all duration-300 group cursor-pointer">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-black/20 rounded-xl flex items-center justify-center">
               <span className="text-lg">💬</span>
