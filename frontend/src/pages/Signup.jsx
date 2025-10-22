@@ -40,7 +40,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "http://localhost:3000/api/auth/register",
         {
           username: formData.username,
           email: formData.email,
@@ -63,6 +63,7 @@ const Signup = () => {
             });
           }
     } catch (err) {
+      console.log(err);
       setError(
         err.response?.data?.error || "An error occurred. Please try again."
       );

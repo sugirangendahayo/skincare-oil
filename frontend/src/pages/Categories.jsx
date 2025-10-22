@@ -13,15 +13,16 @@ const Categories = () => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const categoryImages = {
-    Cleansers:
-      "https://www.shutterstock.com/image-vector/ad-banner-simple-beauty-products-260nw-1780339235.jpg",
-    Moisturizers:
-      "https://www.shutterstock.com/image-vector/elegant-face-cream-banner-ads-260nw-1204702882.jpg",
-    Serums:
-      "https://static.vecteezy.com/system/resources/thumbnails/071/780/209/small/luxury-skincare-products-serums-creams-and-lotions-for-beauty-and-wellness-photo.jpg",
-    "Face Masks":
-      "https://www.shutterstock.com/image-vector/facial-mask-sheet-gold-collagen-260nw-519630427.jpg",
+    "Traditional Dresses":
+      "https://www.shutterstock.com/image-photo/beautiful-african-bride-traditional-attire-260nw-2124125702.jpg",
+    "Wedding Gowns":
+      "https://www.shutterstock.com/image-photo/beautiful-bride-wedding-dress-posing-260nw-1823277650.jpg",
+    "Men's Suits":
+      "https://www.shutterstock.com/image-photo/elegant-groom-suit-posing-wedding-day-260nw-2140349651.jpg",
+    "Bridesmaid Dresses":
+      "https://www.shutterstock.com/image-photo/bridesmaids-holding-bouquets-standing-together-260nw-1082110022.jpg",
   };
+  
 
   useEffect(() => {
     // In src/pages/Categories.jsx, modify the fetchData function
@@ -38,7 +39,9 @@ const Categories = () => {
 
         const processedCategories = catRes.data.map((category) => ({
           ...category,
-          image: categoryImages[category.name] || "/placeholder-category.jpg",
+          image:
+            categoryImages[category.name] ||
+            "https://www.shutterstock.com/image-photo/bridesmaids-holding-bouquets-standing-together-260nw-1082110022.jpg",
           products: products.filter(
             (product) => product.category_id === category.id
           ),
