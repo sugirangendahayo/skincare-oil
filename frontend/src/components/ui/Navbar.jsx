@@ -60,9 +60,9 @@ const Navbar = () => {
               to={user?.role === "admin" ? "/admin" : "/"}
               className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-rose-400 via-rose-500 to-rose-600 bg-clip-text text-transparent hover:scale-105 transition-all duration-300 group"
             >
-              Hair
+              Ri
               <span className="text-rose-400 group-hover:text-rose-300">
-                iat
+                ri <span className="text-white text-[14px] font-bold">Collection</span>
               </span>
               {user?.role === "admin" && (
                 <span className="ml-2 text-xs bg-red-500 text-white px-2 py-1 rounded-full font-bold">
@@ -120,24 +120,7 @@ const Navbar = () => {
 
           {/* Desktop Right Icons/Actions */}
           <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
-            {/* Search Button */}
-            {user?.role !== "admin" && (
-              <button className="p-2.5 rounded-xl bg-gray-800/50 hover:bg-rose-500/20 backdrop-blur-sm border border-gray-700 hover:border-rose-500/50 shadow-lg hover:shadow-rose-500/10 transition-all duration-300 text-gray-300 hover:text-rose-400 hover:scale-110">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            )}
+           
 
             {/* Cart with Badge - Only for regular users */}
             {user?.role !== "admin" && (
